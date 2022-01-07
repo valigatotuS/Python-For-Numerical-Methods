@@ -18,8 +18,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def main():
-    x = np.array([0.00,0.05,0.1,0.15,0.20,0.25,0.30,0.35,0.40,0.45,0.50],float)
-    y = np.array([0,37,71,104,134,161,185,207,225,239,250],float)
+    x = np.array([0.00,0.05,0.1,0.15,0.20,0.25,0.30,0.35,0.40,0.45,0.50], float)
+    y = np.array([0,37,71,104,134,161,185,207,225,239,250], float)
     v = lambda x: np.sqrt(x / 0.075)
     
     sol_1 = v(trap_rule(x, y))
