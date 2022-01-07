@@ -7,7 +7,7 @@
 This project contains exercices from the Work Sessions. 
 
 ### Goals
-The main goal of this project is to gain into 
+The main goal of this project is to gain
 **insight into the possibilities and limitations of numerical calculations**.
 
 During the exercices we will:
