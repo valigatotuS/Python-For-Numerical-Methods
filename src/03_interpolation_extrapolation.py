@@ -9,8 +9,8 @@
  
 
 * Author:      valigatotuS
-* Created:     7/10/2021
-* Modified:    /
+* Created:     7/01/2021
+* Modified:    9/01/2021
  
 """
 
@@ -23,7 +23,6 @@ def main():
     x = np.array([200,250,300,375,425,475])
     y = np.array([7.5,8.6,8.7,10.0,11.3,12.7])
     xi = np.linspace(x[0],x[-1], 300)
-    
     #----------------------solutions----------------------------#
     sol_1 = poly_inter(x,y)
     sol_2 = CubicSpline(x, y)
@@ -54,11 +53,10 @@ def main():
     ax.set_ylabel('T [°C]', rotation = 0)
     ax.legend()
 
-def poly_inter(x, y):
+def poly_inter(x, yN):
     n = len(x)
-    (xN, yN) = (np.zeros([n,n]), y)
+    xN = np.zeros([n,n])
     for i in range(n): xN[:,i] = x**i    
-
     return np.poly1d(np.linalg.solve(xN, yN)[::-1])
 
 def newton(x,y):
@@ -67,12 +65,12 @@ def newton(x,y):
     for e in range(len(x)-1):
         a = [((a[i]-a[i+1])/(x[i]-x[i+1+e])) for i in range(0, len(a)-1)]
         b.append(a[0])
-    rslt = [0]
+    res = [0]
     for i in range(0,len(x)):
         for j in range(0,i):
             b[i] = np.polymul(b[i], [1,-x[j]])
-        rslt = np.polyadd(rslt, b[i])
-    return np.poly1d(rslt)
+        res = np.polyadd(res, b[i])
+    return np.poly1d(res)
     
 if __name__ == '__main__':
     main()
