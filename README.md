@@ -1,6 +1,5 @@
 # Python-For-Numerical-Methods
-_Numerical analysis is the study of algorithms that use numerical approximation for the problems of mathematical analysis. Numerical analysis finds application in all fields of engineering and the physical sciences, and in the 21st century also the life and social sciences, medicine, business and even the arts.
-_
+>*Numerical analysis is the study of algorithms that use numerical approximation for the problems of mathematical analysis. Numerical analysis finds application in all fields of engineering and the physical sciences, and in the 21st century also the life and social sciences, medicine, business and even the arts.*
 ## Project Description
 
 ### What
