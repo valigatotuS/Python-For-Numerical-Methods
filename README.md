@@ -36,14 +36,15 @@ To deploy project we have to install docker and pull the docker image.
 
 PS: We could also run the py-script directly on computer (with python and sci-modules installed)
 ### Folder Structure
-.
-└── src
-    ├── 00_intro.py
-    ├── 01_root_finding.py                 # finding roots via bisection-, newton-raphson- & regula-falsi method 
-    ├── 02_linear_systems.py               # solving matrices via forward-elimination, LU-factorization & jacobi-iteration
-    ├── 03_interpolation_extrapolation.py  # interpolation via scipy-module, poly-inter & newton
-    ├── 04_integration.py                  # integration via trapezoidal- & simpson rule
-    └── 05_differentiation.py              # differentiation via runge kutta & euler
+    .
+    ├── ...
+    └── src
+        ├── 00_intro.py
+        ├── 01_root_finding.py                 # finding roots via bisection-, newton-raphson- & regula-falsi method 
+        ├── 02_linear_systems.py               # solving matrices via forward-elimination, LU-factorization & jacobi-iteration
+        ├── 03_interpolation_extrapolation.py  # interpolation via scipy-module, poly-inter & newton
+        ├── 04_integration.py                  # integration via trapezoidal- & simpson rule
+        └── 05_differentiation.py              # differentiation via runge kutta & euler
     
 ## Credits 
 This is a course at the VUB from the instructors Tim De Troyer, Aurélie Bellemans & Georgios Rekkas Ventiris for 3BA-students in Industrial Engineering.
