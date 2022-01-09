@@ -9,8 +9,8 @@
  
 
 * Author:      valigatotuS
-* Created:     8/01/2021
-* Modified:    /
+* Created:     8/01/2022
+* Modified:    9/01/2022
  
 """
 
@@ -20,49 +20,40 @@ import matplotlib.pyplot as plt
 
 
 def main():
-    # Important note : this code is not finished yet and so incorrect, work in progress
-    
+    #------------------------input------------------------------#    
     (m,g,Cd) = (75,9.81,0.25)
     t = np.arange(0, 11, 1)
     dudt = lambda u: g - ((Cd/m)*u**2)
-    dxdt = lambda x: -2 * ((Cd/m)*x)
+    # dxdt = lambda x: -2 * ((Cd/m)*x)
+    #----------------------solutions----------------------------#
+    sol_1 = euler([0,0], t, fun1)
+    sol_2 = runge_kutta_45([0,0], t, fun2)
+    #-------------------------plots-----------------------------#    
+    plt.plot(t, sol_1, label="euler")
+    plt.plot(t, sol_2.y[0], label="runge kutta 45")
+    plt.title("Euler & Runge Kutta")
+    plt.legend(True)
     
-    # plt.plot(x, f(t))
+def euler(y0, t, fun1):
+    d = np.copy(t)
+    v = np.copy(t)
+    for i in range(len(d)-1):
+        d[i+1] = d[i] + fun1(d[i], v[i])[0]
+        v[i+1] = v[i] + fun1(d[i], v[i])[1]
+    return d
     
+def runge_kutta_45(y0, t, fun2):
+    return sciint.solve_ivp(fun2, [0,10], y0, t_eval = t, method = 'RK45') 
+    
+def fun1(x,u):
+    dxdt = u
+    dudt = 9.81 - (0.25/75)*u**2
+    return dxdt,dudt
 
-
-# def runge_kutta():
-#     sciint.solve_ivp(fun, t_span, y0, options)
-#     pass
-        
-def euler(f1, f2, t):
-    rabbit = np.zeros(len(t))
-    fox = np.zeros(len(t))
-  
-    for i in range(len(t)-1):
-        rabbit[i+1] = rabbit[i] +  f1(rabbit[i], fox[i])[0]
-        fox[i+1] = fox[i] + f1(rabbit[i], fox[i])[1]
-        
-    plt.plot(t, rabbit)
-    
-# def Euler(x_prev, y_prev, i):
-#     x_new = fun(i*dt, [x_prev, y_prev])[0]*dt + x_prev
-#     y_new = fun(i*dt, [x_prev, y_prev])[1]*dt + y_prev
-#     x1_values.append(x_new)
-#     y1_values.append(y_new)
-#     i += 1
-#     if (i*dt < end - start):
-#         Euler(x_new, y_new, i)
-#     else:
-#         data1 = [x1_values, y1_values]
-#         plotIt(data1, 'Euler', 'b')
-#     return
-        
-def sys(t,y): 
-    (m,g,Cd) = (75,9.81,0.25)
-    dudt = g - Cd/m*y[0]**2 
-    dxdt = y[0] 
-    return [dudt,dxdt]
+def fun2(x,u):
+    dxdt = u[1]
+    dudt = 9.81 - (0.25/75)*u[1]**2
+    return dxdt,dudt
 
 if __name__ == '__main__':
     main()
