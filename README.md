@@ -37,4 +37,4 @@ To deploy project we have to install docker and pull the docker image.
 PS: We could also run the py-script directly on computer (with python and sci-modules installed)
 
 ## Credits 
-This is a course at the VUB from the instructors Tim De Troyer, Aurélie Bellemans, Georgios Rekkas Ventiris for 3BA-students in Industrial Engineering.
+This is a course at the VUB from the instructors Tim De Troyer, Aurélie Bellemans & Georgios Rekkas Ventiris for 3BA-students in Industrial Engineering.
